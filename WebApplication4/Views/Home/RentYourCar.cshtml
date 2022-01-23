@@ -1,0 +1,276 @@
+﻿@{
+    if (Session["email"] == null)
+    {
+        Response.Redirect("~/Home/index");
+    }
+}
+<!DOCTYPE html>
+@model string
+<html>
+<head>
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+    <title>Login Page</title>
+    <style>
+        import url('https://fonts.googleapis.com/css?family=Gothic+A1|Kaushan+Script|Libre+Baskerville|Lobster');
+        .body {
+            font-family: 'Gothic A1', sans-serif;
+            font-size: 16px;
+        }
+
+        p {
+            color: #6c6c6f;
+            font-size: 1em;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            color: #323233;
+            text-transform: uppercase;
+        }
+
+        .navbar-brand span {
+            color: #fed136;
+            font-size: 25px;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            font-family: 'Kaushan Script','Helvetica Neue',Helvetica,Arial,cursive;
+        }
+
+        .navbar-brand {
+            color: #fff;
+            font-size: 25px;
+            font-family: 'Kaushan Script','Helvetica Neue',Helvetica,Arial,cursive;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+        }
+
+        .navbar-nav .nav-item .nav-link {
+            padding: 1.1em 1em !important;
+            font-size: 120%;
+            font-weight: 500;
+            letter-spacing: 1px;
+            color: #fff;
+            font-family: 'Gothic A1', sans-serif;
+        }
+
+            .navbar-nav .nav-item .nav-link:hover {
+                color: #fed136;
+            }
+
+        .navbar-expand-md .navbar-nav .dropdown-menu {
+            border-top: 3px solid #fed136;
+        }
+
+        .dropdown-item:hover {
+            background-color: #fed136;
+            color: #fff;
+        }
+
+        nav {
+            -webkit-transition: padding-top .3s,padding-bottom .3s;
+            -moz-transition: padding-top .3s,padding-bottom .3s;
+            transition: padding-top .3s,padding-bottom .3s;
+            border: none;
+        }
+
+        .shrink {
+            padding-top: 0;
+            padding-bottom: 0;
+            background-color: #212529;
+        }
+
+        .banner {
+            background-image: url('https://www.holmanmotorcars.com/static/dealer-12794/videos/bgVideo-Bentley.jpg');
+            text-align: center;
+            color: #fff;
+            background-repeat: no-repeat;
+            background-attachment: scroll;
+            background-position: center center;
+            -webkit-background-size: cover;
+            -moz-background-size: cover;
+            -o-background-size: cover;
+            background-size: cover;
+        }
+
+        .banner-text {
+            padding: 200px 0 150px 0;
+        }
+
+        .banner-heading {
+            font-family: 'Lobster', cursive;
+            font-size: 75px;
+            font-weight: 700;
+            line-height: 100px;
+            margin-bottom: 30px;
+            color: #fff;
+        }
+
+        .banner-sub-heading {
+            font-family: 'Libre Baskerville', serif;
+            font-size: 30px;
+            font-weight: 300;
+            line-height: 30px;
+            margin-bottom: 50px;
+            color: #fff;
+        }
+
+        .btn-banner {
+            padding: 5px 20px;
+            border-radius: 10px;
+            font-weight: 700;
+            line-height: 1.5;
+            text-align: center;
+            color: #fff;
+            text-transform: uppercase;
+        }
+
+        .text-intro {
+            width: 90%;
+            margin: auto;
+            text-align: center;
+            padding-top: 30px;
+        }
+
+
+        /* mobile view */
+        media screen(max-width:500px) {
+            .navbar-nav
+
+        {
+            background-color: #000;
+            border-top: 3px solid #fed136;
+            color: #fff;
+            z-index: 1;
+            margin-top: 5px;
+        }
+
+        .navbar-nav .nav-item .nav-link {
+            padding: 0.7em 1em !important;
+            font-size: 100%;
+            font-weight: 500;
+        }
+
+        .banner-text {
+            padding: 150px 0 150px 0;
+        }
+
+        .banner-heading {
+            font-size: 30px;
+            line-height: 30px;
+            margin-bottom: 20px;
+        }
+
+        .banner-sub-heading {
+            font-size: 10px;
+            font-weight: 200;
+            line-height: 10px;
+            margin-bottom: 40px;
+        }
+
+        }
+
+        media screen(max-width:768px) {
+            .banner-text
+
+        {
+            padding: 150px 0 150px 0;
+        }
+
+        .banner-sub-heading {
+            font-size: 23px;
+            font-weight: 200;
+            line-height: 23px;
+            margin-bottom: 40px;
+        }
+        }
+    </style>
+    <!--Made with love by Mutiullah Samim -->
+    <!--Bootsrap 4 CDN-->
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+    <!--Fontawesome CDN-->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+    <!--Custom styles-->
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+</head>
+<body>
+
+    <!------ Include the above in your HEAD tag ---------->
+    <nav class="navbar navbar-expand-md navbar-dark fixed-top" id="banner">
+        <div class="container">
+            <!-- Brand -->
+            <a class="navbar-brand" href="../../Home/RentYourCar">Hyper<span>Uber</span></a>
+            <!-- Toggler/collapsibe Button -->
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <!-- Navbar links -->
+            <div class="collapse navbar-collapse" id="collapsibleNavbar">
+                <ul class="navbar-nav ml-auto">
+                    <!-- Dropdown -->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+                            Manage Cars & Rent
+                        </a>
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item" href="../../Home/AddCar">Add Car In Profile</a>
+                            @*<a class="dropdown-item" href="../../Home/PersonCollectMoney">Collect Money</a>
+                            <a class="dropdown-item" href="../../Home/ViewMyCars">View My Cars</a>*@
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../../Home/RentYourCar">Rent Your Car</a>
+                    </li>
+                    @{
+                        if (Session["email"] != null)
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link" href="">Hi,@Session["Email"].ToString()</a>
+                            </li>
+                        }
+                    }
+                    <li class="nav-item">
+                        <a class="nav-link" href="logoutperson">Log Out</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="banner">
+        <div class="container">
+            <div class="banner-text">
+                <div class="banner-heading">
+                    Welcome Back !
+                </div>
+                <div class="banner-sub-heading">
+                    Rent Your Car and Collect Money all through One Channel.
+                </div>
+            </div>
+        </div>
+    </div>
+    <section id="about">
+        <div class="container">
+            <div class="text-intro">
+                <h2>About Us</h2>
+                <p>An Extension to Uber, A Rent-a-Car Service with multiple options to opt.</p>
+            </div>
+        </div>
+    </section>
+    <script>
+        $(document).on("scroll", function () {
+            if
+            ($(document).scrollTop() > 86) {
+                $("#banner").addClass("shrink");
+            }
+            else {
+                $("#banner").removeClass("shrink");
+            }
+        });</script>
+</body>
+
+</html>

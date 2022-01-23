@@ -1,0 +1,18 @@
+﻿//enable migrations is executed only once
+
+Enable-Migrations -ContextTypeName ContextClass -MigrationsDirectory Migrations\Context
+
+// add migrations is exceuted whenever your model changes
+
+add-migration -ConfigurationTypeName WebApplication4.Migrations.Context.Configuration "InitialCreate"
+
+// and update database is executed anytime, at first execution of it it creates a Database for us
+
+update-database -ConfigurationTypeName WebApplication4.Migrations.Context.Configuration
+
+
+========== ApplicationDbContext ==========
+
+Enable-Migrations -ContextTypeName ApplicationDbContext -MigrationsDirectory Migrations\Identity
+
+add-migration -ConfigurationTypeName CodeF.Migrations.Identity.Configuration "InitialIdentity"
